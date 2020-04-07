@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".lichyi_kabinet"></activity>
+        <activity android:name=".time"></activity>
+        <activity android:name=".change_medic" />
+        <activity android:name=".lichyi_kabinet" />
         <activity android:name=".regActiv" />
         <activity
             android:name=".MainActivity"

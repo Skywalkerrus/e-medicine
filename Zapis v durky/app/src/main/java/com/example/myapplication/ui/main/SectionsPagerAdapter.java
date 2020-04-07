@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.myapplication.BlankFragment1;
+import com.example.myapplication.BlankFragment2;
 import com.example.myapplication.R;
 
 /**
@@ -29,7 +31,17 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        //return PlaceholderFragment.newInstance(position + 1);
+        switch (position) {
+            case 0:
+                BlankFragment1 bf1 = new BlankFragment1();
+                return  bf1;
+            case 1:
+                BlankFragment2 bf2 = new BlankFragment2();
+                return  bf2;
+             default:
+                 return null;
+        }
     }
 
     @Nullable
