@@ -10,7 +10,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="tab_text_1">Запись ко врачу/личный кабинет</string>
+    <string name="tab_text_1">Запись к врачу/личный кабинет</string>
     <string name="tab_text_2">Мои записи</string>
     <string name="title_activity_register">registerActivity</string>
     <string name="login"></string>

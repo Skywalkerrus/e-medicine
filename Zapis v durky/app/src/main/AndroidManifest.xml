@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="MyApplication"
+        android:label="Личный кабинет"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".time"></activity>
-        <activity android:name=".change_medic" />
-        <activity android:name=".lichyi_kabinet" />
-        <activity android:name=".regActiv" />
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".info_about_klin"
+            android:label="Инфо о клинике"></activity>
+        <activity android:name=".time"
+            android:label="Запись к врачу"/>
+        <activity android:name=".change_medic"
+            android:label="Выбор врача"  />
+        <activity android:name=".lichyi_kabinet"
+            android:label="Личный кабинет"/>
+        <activity
+            android:name=".regActiv"
+            android:label="Идентификация" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"
+            android:label="Главная"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"
-            android:label="MyApplication">
+            android:label="Личный кабинет">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"
+                   />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

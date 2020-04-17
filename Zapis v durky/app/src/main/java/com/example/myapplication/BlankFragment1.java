@@ -27,6 +27,7 @@ public class BlankFragment1 extends Fragment {
                 container, false);
         Button writeButton = (Button) view.findViewById(R.id.medwrite);
         Button lichnButton = (Button) view.findViewById(R.id.lichn);
+        Button infoButt = (Button) view.findViewById(R.id.info);
         writeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,9 +40,13 @@ public class BlankFragment1 extends Fragment {
                 startActivity(new Intent(getActivity(), lichyi_kabinet.class));
             }
         });
-        // Inflate the layout for this fragment
+        infoButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), info_about_klin.class));
+            }
+        });
         return view;
-        //return inflater.inflate(R.layout.fragment_blank_fragment1, container, false);
     }
 
 }
