@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".info_about_klin"
-            android:label="Инфо о клинике"></activity>
+            android:label="Контакты"></activity>
         <activity android:name=".time"
             android:label="Запись к врачу"/>
         <activity android:name=".change_medic"

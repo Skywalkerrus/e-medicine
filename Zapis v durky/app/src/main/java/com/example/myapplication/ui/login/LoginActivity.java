@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         passw = dataSnapshot.getKey();
                         mass = dataSnapshot.getValue().toString().split(":");
-                        if (mass[0].equals(usernameEditText.getText().toString()) && passw.equals(passwordEditText.getText().toString()))
+                        if (mass[3].equals(usernameEditText.getText().toString()) && mass[0].equals(passwordEditText.getText().toString()))
                         {
                             showToast("Авторизация успешна!");
                             saveText(mass[0] + ":" + mass[1] + ":" + mass[2] + ":" + mass[3] + ":");

@@ -44,6 +44,8 @@ public class time extends AppCompatActivity {
         mass = new String[20];
         Bundle arguments = getIntent().getExtras();
         kdoc = arguments.getString("Data");
+       // String[] vrach2 = kdoc.split(" ");
+       // kdoc = vrach2[0];
         ref = FirebaseDatabase.getInstance().getReference(kdoc);
         CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -67,9 +69,11 @@ public class time extends AppCompatActivity {
                 time = dataSnapshot.getValue().toString().split(":");
                 int lg = time.length;
                 int i = 0;
-                while (i < lg)
+                while (i < 3)
                 {
-                    times.append(", " + time[i]);
+                    if (i > 0 && i < 3)
+                        times.append(", ");
+                    times.append(time[i]);
                     i++;
                 }
             }

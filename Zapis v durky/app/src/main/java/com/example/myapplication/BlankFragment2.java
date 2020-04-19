@@ -75,9 +75,9 @@ public class BlankFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 if (mass.length >  4) {
-                mass[4] = " ";
-                mass[5] = " ";
-                mass[6] = " "; }
+                mass[4] = "";
+                mass[5] = "";
+                mass[6] = ""; }
                 textView.setText("Запись свободна.");
                 if (mass.length == 16) {
                     ref.setValue(mass[0] + ":" + mass[1] + ":" + mass[2] + ":" + mass[3] + mass[4] + mass[5] + mass[6]
@@ -99,9 +99,9 @@ public class BlankFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 if (mass.length >  7) {
-                mass[7] = " ";
-                mass[8] = " ";
-                mass[9] = " "; }
+                mass[7] = "";
+                mass[8] = "";
+                mass[9] = ""; }
                 zap.setText("Запись свободна.");
                 if (mass.length == 16) {
                     ref.setValue(mass[0] + ":" + mass[1] + ":" + mass[2] + ":" + mass[3] + ":" + mass[4] + ":" + mass[5] + ":" + mass[6]
@@ -124,9 +124,9 @@ public class BlankFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 if (mass.length >  9) {
-                mass[10] = " ";
-                mass[11] = " ";
-                mass[12] = " "; }
+                mass[10] = "";
+                mass[11] = "";
+                mass[12] = ""; }
                 zap2.setText("Запись свободна.");
                 if (mass.length == 16) {
                     ref.setValue(mass[0] + ":" + mass[1] + ":" + mass[2] + ":" + mass[3] + ":" + mass[4] + ":" + mass[5] + ":" + mass[6]
@@ -204,7 +204,9 @@ public class BlankFragment2 extends Fragment {
                         Toast.makeText(context, "Превышен лимит записей.", Toast.LENGTH_LONG).show();
             }
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError)
+            {
+
             }
         });
         }

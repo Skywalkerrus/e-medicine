@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "1067008684639",
-    "firebase_url": "https://zapis-v-kliniky.firebaseio.com",
-    "project_id": "zapis-v-kliniky",
-    "storage_bucket": "zapis-v-kliniky.appspot.com"
+    "project_number": "157534530325",
+    "firebase_url": "https://zapisvkliniky.firebaseio.com",
+    "project_id": "zapisvkliniky",
+    "storage_bucket": "zapisvkliniky.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1067008684639:android:78a9f99e6a6f84fd1361ea",
+        "mobilesdk_app_id": "1:157534530325:android:5b70d02c44d189f91c971c",
         "android_client_info": {
           "package_name": "com.example.myapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1067008684639-465n722u090t9brrmiefrbd84315nd6m.apps.googleusercontent.com",
+          "client_id": "157534530325-73fcthrb4ah2ihvm78os8ns3ufk0mv0r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "3aad75bcb975a5e04b0a84d9225127d49d2b5089"
+          }
+        },
+        {
+          "client_id": "157534530325-1qplroq8vbil7j0n6ru5c947j2uq0ees.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBThhhJLa4HpjjB6452p6w2KM12uCx-_Fw"
+          "current_key": "AIzaSyAGgkCA3MaS9JFpiEFOCRNAkXu5hxVwNQc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1067008684639-465n722u090t9brrmiefrbd84315nd6m.apps.googleusercontent.com",
+              "client_id": "157534530325-1qplroq8vbil7j0n6ru5c947j2uq0ees.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

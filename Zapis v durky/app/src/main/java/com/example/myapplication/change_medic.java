@@ -12,8 +12,10 @@ import android.widget.Spinner;
 
 public class change_medic extends AppCompatActivity {
 
-    public String[] cities = {"Выбрать врача", "Травматолог", "Хирург", "Терапевт", "Кардиолог", "Уролог",
-            "Ортопед", "Офтальмотолог", "Хирург", "Стоматолог", "Вирусолог", "Проктолог"};
+    public String[] cities = {"Выбрать врача", "Травматолог - Ломова В.О.", "Хирург - Резнова Д.А.", "Терапевт - Дежурнова Ю.А.",
+            "Кардиолог - Аллахов Е.Н.", "Уролог - Косов В.В.",
+            "Ортопед - Ногов С.П.", "Офтальмотолог - Глазнов К.Б.", "Стоматолог - Зубнов И.О.", "Вирусолог - Максимов И.А.",
+            "Проктолог - Попов Ю.А."};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,45 +42,45 @@ public class change_medic extends AppCompatActivity {
                    // intent.putExtra("Data", "Травматолог");
                    // startActivity(intent);
                 }
-                else if (item.equals("Травматолог")) {
+                else if (item.equals("Травматолог - Ломова В.О.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Травматолог");
+                        intent.putExtra("Data", "Травматолог - Ломова Вероника Олеговна");
                         startActivity(intent);
-                } else if (item.equals("Кардиолог")) {
+                } else if (item.equals("Кардиолог - Аллахов Е.Н.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Кардиолог");
+                        intent.putExtra("Data", "Кардиолог - Аллахов Егор Николаевич");
                         startActivity(intent);
-                } else if (item.equals("Ортопед")) {
+                } else if (item.equals("Ортопед - Ногов С.П.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Ортопед");
+                        intent.putExtra("Data", "Ортопед - Ногов Сергей Петрович");
                         startActivity(intent);
-                } else if (item.equals("Уролог")) {
+                } else if (item.equals("Уролог - Косов В.В.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Уролог");
+                        intent.putExtra("Data", "Уролог - Косов Виталий Витальевич");
                         startActivity(intent);
-                    } else if (item.equals("Терапевт")) {
+                    } else if (item.equals("Терапевт - Дежурнова Ю.А.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Терапевт");
+                        intent.putExtra("Data", "Терапевт - Дежурнова Юлия Андреевна");
                         startActivity(intent);
-                    } else if (item.equals("Офтальмотолог")) {
+                    } else if (item.equals("Офтальмотолог - Глазнов К.Б.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Офтальмотолог");
+                        intent.putExtra("Data", "Офтальмотолог - Глазнов Кирил Борисов");
                         startActivity(intent);
-                    } else if (item.equals("Хирург")) {
+                    } else if (item.equals("Хирург - Резнова Д.А.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Хирург");
+                        intent.putExtra("Data", "Хирург - Резнова Дарья Андреевна");
                         startActivity(intent);
-                    } else if (item.equals("Стоматолог")) {
+                    } else if (item.equals("Стоматолог - Зубнов И.О.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Стоматолог");
+                        intent.putExtra("Data", "Стоматолог - Зубнов Игорь Олегович");
                         startActivity(intent);
-                    } else if (item.equals("Вирусолог")) {
+                    } else if (item.equals("Вирусолог - Максимов И.А.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Вирусолог");
+                        intent.putExtra("Data", "Вирусолог - Максимов Илья Андреевич");
                         startActivity(intent);
-                    } else if (item.equals("Проктолог")) {
+                    } else if (item.equals("Проктолог - Попов Ю.А.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Проктолог");
+                        intent.putExtra("Data", "Проктолог - Попов Юрюй Алексеевич");
                         startActivity(intent);
                     }
 
