@@ -15,12 +15,12 @@ public class change_medic extends AppCompatActivity {
     public String[] cities = {"Выбрать врача", "Травматолог - Ломова В.О.", "Хирург - Резнова Д.А.", "Терапевт - Дежурнова Ю.А.",
             "Кардиолог - Аллахов Е.Н.", "Уролог - Косов В.В.",
             "Ортопед - Ногов С.П.", "Офтальмотолог - Глазнов К.Б.", "Стоматолог - Зубнов И.О.", "Вирусолог - Максимов И.А.",
-            "Проктолог - Попов Ю.А."};
+            "Проктолог - Попов Ю.А."}; // элементы спиннера
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_medic);
-
+        // Выбор врача осуществляется с помощью элемента интерфейса - Spinner
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
         // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемета spinner
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cities);
@@ -33,18 +33,16 @@ public class change_medic extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
 
-                // Получаем выбранный объект
                 int gg = parent.getCount();
                 int i = 0;
                 String item = (String) parent.getItemAtPosition(position);
                 if (item.equals("Выбрать врача")) {
-                   // Intent intent = new Intent(change_medic.this, time.class);
-                   // intent.putExtra("Data", "Травматолог");
-                   // startActivity(intent);
                 }
                 else if (item.equals("Травматолог - Ломова В.О.")) {
+                    // при выборе конкретного элеента спиннера мы переходим на активность выбора времени и даты
+                    // при переходе мы передаем данные врача, которого мы выбрали(чтоб программа отобразила его данные из ячейки врача в бд)
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Травматолог - Ломова Вероника Олеговна");
+                        intent.putExtra("Data", "Травматолог - Ломова Вероника Олеговна"); // передаем данные
                         startActivity(intent);
                 } else if (item.equals("Кардиолог - Аллахов Е.Н.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
@@ -92,50 +90,5 @@ public class change_medic extends AppCompatActivity {
             }
         };
         spinner.setOnItemSelectedListener(itemSelectedListener);
-        /*Button medButton = (Button) findViewById(R.id.medman);
-        Button yrologB = (Button) findViewById(R.id.yrolog);
-        Button ortoButton = (Button) findViewById(R.id.ortoped);
-        Button travmaButton = (Button) findViewById(R.id.travma);
-        Button terapevtButton = (Button) findViewById(R.id.terapevt);
-        medButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(change_medic.this, time.class);
-                intent.putExtra("Data", "Кардиолог");
-                startActivity(intent);
-            }
-        });
-        yrologB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(change_medic.this, time.class);
-                intent.putExtra("Data", "Уролог");
-                startActivity(intent);
-            }
-        });
-        ortoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(change_medic.this, time.class);
-                intent.putExtra("Data", "Ортопед");
-                startActivity(intent);
-            }
-        });
-        travmaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(change_medic.this, time.class);
-                intent.putExtra("Data", "Травматолог");
-                startActivity(intent);
-            }
-        });
-       terapevtButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(change_medic.this, time.class);
-                intent.putExtra("Data", "Терапевт");
-                startActivity(intent);
-            }
-        }); */
     }
 }

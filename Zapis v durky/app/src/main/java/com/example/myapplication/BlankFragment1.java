@@ -30,19 +30,19 @@ public class BlankFragment1 extends Fragment {
         Button infoButt = (Button) view.findViewById(R.id.info);
         writeButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { // кнопка записи ко врачу на прием.
                 startActivity(new Intent(getActivity(), change_medic.class));
             }
         });
         lichnButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { // кнопка перехода в личный кабинет
                 startActivity(new Intent(getActivity(), lichyi_kabinet.class));
             }
         });
         infoButt.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { // кнопка перехода в просмотр контактов
                 startActivity(new Intent(getActivity(), info_about_klin.class));
             }
         });

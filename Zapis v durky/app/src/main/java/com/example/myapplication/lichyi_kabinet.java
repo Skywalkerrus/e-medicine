@@ -19,6 +19,10 @@ public class lichyi_kabinet extends AppCompatActivity {
     private final static String FILE_NAME = "abus.txt";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // в этой активности мы открываем файл, с определенным названием.
+        // Этот файл создавался при логине и заполнялся данными из базы.
+        // А уже здесь я заполняю все поля данными из файла
+        // 0 - password, 1 - fio, 2 - tlf, 3 - omc
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lichyi_kabinet);
         final EditText omcText = findViewById(R.id.omcc);
@@ -34,7 +38,7 @@ public class lichyi_kabinet extends AppCompatActivity {
         fioText.setText(mass[1]);
         tlfText.setText(mass[2]);
         passText.setText(mass[0]);
-        logButton.setOnClickListener(new View.OnClickListener() {
+        logButton.setOnClickListener(new View.OnClickListener() { // кнопка перехода на "Главную" активность
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(lichyi_kabinet.this, MainActivity.class);
@@ -42,16 +46,15 @@ public class lichyi_kabinet extends AppCompatActivity {
             }
         });
     }
+    // внизу методы работы с файлом открытие/сохранение.
     public void saveText(String data){
 
         FileOutputStream fos = null;
         try {
-            // EditText textBox = (EditText) findViewById(R.id.save_text);
             String text = data;
-
             fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
             fos.write(text.getBytes());
-            //Toast.makeText(this, "Файл сохранен", Toast.LENGTH_SHORT).show();
+
         }
         catch(IOException ex) {
 

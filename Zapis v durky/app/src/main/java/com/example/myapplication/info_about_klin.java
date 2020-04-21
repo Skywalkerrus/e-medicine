@@ -10,5 +10,6 @@ public class info_about_klin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_about_klin);
+        // для отображения всей инфы использовался редакор дизайна активности андроид студии
     }
 }

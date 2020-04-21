@@ -46,6 +46,7 @@ public class BlankFragment2 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_blank_fragment2,
                 container, false);
+        // В этой активности мы получаем данные из бд, для того, чтоб их отобразить(если данные имеются).
         final Context context = inflater.getContext();
         textView = (TextView) view.findViewById(R.id.textView5);
         zap = (TextView) view.findViewById(R.id.zap2);
@@ -56,16 +57,17 @@ public class BlankFragment2 extends Fragment {
         final Button otm3 = view.findViewById(R.id.otm3);
         final Button otm4 = view.findViewById(R.id.otm4);
         mass = new String[20];
-        // Inflate the layout for this fragment
-
-            mass = openText(context).split(":");
-
-
-        ref = FirebaseDatabase.getInstance().getReference(mass[3]);
+        mass = openText(context).split(":"); // получаем данные из файла приложения.
+        ref = FirebaseDatabase.getInstance().getReference(mass[3]); // в полцченных данных из файла у нас есть и ОМС(наш логин), по нему мы делаем запрос в бд
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                mass = dataSnapshot.getValue().toString().split(":");
+                //0 - password, 1 - fio, 2 - tlf, 3 - omc
+                // все записи юзера хранятся в его ячейке. До записи ко врачу данные выглядят так: Пароль:ФИО:Телеофн:ОМС(логин)
+                // после записи ко врачу данные выглядят так: Пароль:ФИО:Телеофн:ОМС(логин):специальность врача:время записи:дата записи
+                // 2 запись выглядит так Пароль:ФИО:Телеофн:ОМС(логин):специальность врача:время записи:дата записи::специальность врача:время записи:дата записи
+                // и тд до 5 записи(поэтомц записей всего 4).
+                mass = dataSnapshot.getValue().toString().split(":"); // мы получаем данные из бд и делим их на ячейки(делим по разделителю, - это двоеточие)
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -73,13 +75,14 @@ public class BlankFragment2 extends Fragment {
         });
         otm1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (mass.length >  4) {
+            public void onClick(View v) { // кнопка отмены записей
+                if (mass.length >  4) { // если длинна массива больше 4 , значит, юзер к кому-то записался.
                 mass[4] = "";
                 mass[5] = "";
                 mass[6] = ""; }
                 textView.setText("Запись свободна.");
-                if (mass.length == 16) {
+                if (mass.length == 16) { // в каждом условии указана конкретная длинна массива при конкретных записях
+                    // тк это кнопка отмены, то соответственно, запись нужно подчистить и в бд, что мы и делаем при кадом отдельном сценарии
                     ref.setValue(mass[0] + ":" + mass[1] + ":" + mass[2] + ":" + mass[3] + mass[4] + mass[5] + mass[6]
                             + ":" + mass[7] + ":" + mass[8] + ":" + mass[9] + ":" + mass[10] + ":"
                             + mass[11] + ":" + mass[12] + ":" + mass[13] + ":" + mass[14] + ":" + mass[15]);
@@ -97,7 +100,7 @@ public class BlankFragment2 extends Fragment {
         });
         otm2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { // все кнопки отмены действуют по одному сценарию, но с разнным колличесвтом данных
                 if (mass.length >  7) {
                 mass[7] = "";
                 mass[8] = "";
@@ -122,7 +125,7 @@ public class BlankFragment2 extends Fragment {
         });
         otm3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { // кнопка отмены
                 if (mass.length >  9) {
                 mass[10] = "";
                 mass[11] = "";
@@ -145,7 +148,7 @@ public class BlankFragment2 extends Fragment {
                 }
             }
         });
-        otm4.setOnClickListener(new View.OnClickListener() {
+        otm4.setOnClickListener(new View.OnClickListener() { // кнопка отмены
             @Override
             public void onClick(View v) {
                 if (mass.length >  12) {
@@ -170,20 +173,25 @@ public class BlankFragment2 extends Fragment {
                 }
             }
         });
-        //if (mass.length >= 6)
-        //    textView.append("Врач:" +  mass[4] + "Время:" + mass[5]);
         // 0 - password, 1 - fio, 2 - tlf, 3 - omc, 4 - специальность врача, 5 - время, на которое мы записались.
         if (mass.length >= 4){
         ref = FirebaseDatabase.getInstance().getReference(mass[3]);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                mass = dataSnapshot.getValue().toString().split(":");
+            public void onDataChange(DataSnapshot dataSnapshot) {  // метод, отслеживающий изменения в юазе данных.
+                mass = dataSnapshot.getValue().toString().split(":"); // выгружаем данные из быза и делим их
                 if (mass.length > 4)
+                    // при конкретной длинне массива и наличии свободной ячейки мы записываем выгруженные данные в textView
+                    // чем больше записей, тем больше данных распределяются по разным textView
+
+
                     if (mass.length == 7 && textView.getText().equals("Запись свободна."))
+                        // Например, если запись одна. то мы ее запишем в первый textView
                         textView.setText("Врач: " +  mass[4] + " \nВремя: " + mass[5] + " \nДата: " + mass[6]);
                     else if (mass.length == 10 && zap.getText().equals("Запись свободна."))
                     {
+                        // А если записей две, то мы запишем первую запись в первый textView, а вторую - во второй textView
+                        // и так по возрастающей до 4 записи
                         textView.setText("Врач: " +  mass[4] + " \nВремя: " + mass[5] + " \nДата: " + mass[6]);
                         zap.setText("Врач: " +  mass[7] + " \nВремя: " + mass[8] + " \nДата: " + mass[9]);
                     }
@@ -202,6 +210,7 @@ public class BlankFragment2 extends Fragment {
                     }
                     else
                         Toast.makeText(context, "Превышен лимит записей.", Toast.LENGTH_LONG).show();
+                    // Если лимит превышен, выскочит соответствующий тост
             }
             @Override
             public void onCancelled(DatabaseError databaseError)
@@ -210,8 +219,7 @@ public class BlankFragment2 extends Fragment {
             }
         });
         }
-        // 0 - password, 1 - fio, 2 - tlf, 3 - omc, 4 - специальность врача, 5 - время, на которое мы записались.
-        return view;//inflater.inflate(R.layout.fragment_blank_fragment2, container, false);
+        return view;
     }
     // открытие файла
     public String openText(Context context){

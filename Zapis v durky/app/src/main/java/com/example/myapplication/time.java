@@ -43,22 +43,20 @@ public class time extends AppCompatActivity {
         final Button apply = findViewById(R.id.podtv);
         mass = new String[20];
         Bundle arguments = getIntent().getExtras();
-        kdoc = arguments.getString("Data");
-       // String[] vrach2 = kdoc.split(" ");
-       // kdoc = vrach2[0];
-        ref = FirebaseDatabase.getInstance().getReference(kdoc);
+        kdoc = arguments.getString("Data"); // здесть мы принимаем данные о враче, которые мы передали в предыдущей активности
+        ref = FirebaseDatabase.getInstance().getReference(kdoc); // получаем ссылку на данные о враче(переменная kdoc это инициалы врача и его специальность)
         CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override
             public void onSelectedDayChange(CalendarView view, int year,
-                                            int month, int dayOfMonth) {
+                                            int month, int dayOfMonth) { // отслеживаем нажатие на календарь, для выбора даты записи
                 mYear = year;
                 mMonth = month;
                 mDay = dayOfMonth;
                 selectedDate = new StringBuilder().append(mMonth + 1)
                         .append("-").append(mDay).append("-").append(mYear)
-                        .append(" ").toString();
+                        .append(" ").toString(); // состовляем одну строку, состоящую из дня,месяца, года
                 Toast.makeText(getApplicationContext(), selectedDate, Toast.LENGTH_LONG).show();
             }
         });
@@ -66,14 +64,14 @@ public class time extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                time = dataSnapshot.getValue().toString().split(":");
+                time = dataSnapshot.getValue().toString().split(":"); // загружаем данные о времени приема врача в массив
                 int lg = time.length;
                 int i = 0;
                 while (i < 3)
                 {
                     if (i > 0 && i < 3)
                         times.append(", ");
-                    times.append(time[i]);
+                    times.append(time[i]); // добавляем эти данные в textView
                     i++;
                 }
             }
@@ -87,7 +85,8 @@ public class time extends AppCompatActivity {
         //7 - специальность врача, 8 - время, на которое мы записались.,  9 - дата
         // 10 - специальность врача, 11 - время, на которое мы записались.  12 - дата
         //13 - специальность врача, 14 - время, на которое мы записались.  15 - дата
-        ref = FirebaseDatabase.getInstance().getReference(mass1[3]);
+        ref = FirebaseDatabase.getInstance().getReference(mass1[3]); // переходим к ячейке пользователя, чтоб загрузить туда запись ко рвачу
+        // к какому пользователю перейти мы узнаем из нашего файла(который был создан при регистрации/входе), в котором хранятся данные пользователя
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -102,10 +101,15 @@ public class time extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (!time[0].equals(edt.getText().toString()) && !time[1].equals(edt.getText().toString()) && !time[2].equals(edt.getText().toString()))
+                // сравнение введенного времени пользователем и достуаного времени, которое мы получили из бд.
                 {
                     showToast("Неправильно выбрано время записи!");
                     return;
-                } else if (mass.length == 4) {
+                }
+                // если время выбрано апрвильно, мы заносим данные о записи в бд, в ячейку к пользователю.
+                // чтоб не вышло неверной записи, мы смотрим надлинну массива, если записей нет, то запись запишется в ближайшие 3 ячейки
+                // если первая запись естть, то мы запишем новую запись в следующие три ячейки.
+                else if (mass.length == 4) {
                     ref.setValue(mass[0] + ":" + mass[1] + ":" + mass[2] + ":" + mass[3] + ":" + kdoc + ":" + edt.getText() + ":" + selectedDate);
                 }
                 else if (mass.length == 7) {
@@ -122,7 +126,7 @@ public class time extends AppCompatActivity {
                             + ":" + mass[7] + ":" + mass[8] + ":" + mass[9] + ":" + mass[10] + ":" + mass[11] + ":" + mass[12] + ":" + kdoc + ":" + edt.getText() + ":" + selectedDate);
 
                 }
-               Intent intent = new Intent(time.this, MainActivity.class);
+                Intent intent = new Intent(time.this, MainActivity.class); // по окончанию записи переходим обратно на главную, где можно посмотреть наши записи
                 startActivity(intent);
             }
         });

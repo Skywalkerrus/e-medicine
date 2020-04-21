@@ -20,11 +20,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTitle("Главная");
+        // Здесь ничего особенного не происходит, кроме создания вкладок, методом setAdapter. Все события вкладок обрабатываются
+        //в blankFragment1 и blankFragment2
         super.onCreate(savedInstanceState);
-        setTitle("Главная");
         setContentView(R.layout.activity_main);
-
-
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);

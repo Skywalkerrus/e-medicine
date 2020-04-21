@@ -23,6 +23,8 @@ public class regActiv extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
+        // Активность регистрации.
+        // Заполняем все поля, загружаем в базу (кнопка "подтвердить данные"), выходим на активн. логина, чтоб залогиниться
         final EditText omcText = findViewById(R.id.omc);
         final EditText passText = findViewById(R.id.pass);
         final EditText fioText = findViewById(R.id.fio);
@@ -36,23 +38,26 @@ public class regActiv extends AppCompatActivity {
         logButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // кнопка загрузки в базу наших данных
+                // 1 - пароль, 2 - ФИО, 3 - телефон, 4 - ОМС(он же логин)
                 data = passText.getText().toString() + ":" + fioText.getText().toString() + ":" + tlfText.getText().toString() + ":" + omcText.getText().toString();
-                ref = db.getReference(omcText.getText().toString()); // Key
-                ref.setValue(data); // Value
+                ref = db.getReference(omcText.getText().toString()); // Извлекаем путь ячейки, в которую зальем данные(путь к ячейке - это ОМС)
+                ref.setValue(data); // Заливаем данные.
                 showToast("Вы успешно зарегестрировались! Пожалуйста, вернитесь на экран входа и войдите в учетную запись.");
 
             }
         });
         gologButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { // кнопка возырата на активити
+                // логина(в основном, используется после запонения данных и регистраии)
                 Intent intent = new Intent(regActiv.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
     }
     public void showToast(String mess) {
-        //создаём и отображаем текстовое уведомление
+        // Метод отображение тоста(всплывающего уведомления)
         Toast toast = Toast.makeText(getApplicationContext(),
                 mess,
                 Toast.LENGTH_SHORT);
