@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.ui.login.LoginActivity;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class lichyi_kabinet extends AppCompatActivity {
         final EditText tlfText = findViewById(R.id.tlff);
         final EditText passText = findViewById(R.id.pass);
         final Button logButton = findViewById(R.id.button6);
+        final Button logoutButton = findViewById(R.id.logout);
         Intent intent = getIntent();
         //String[] mass = intent.getStringArrayExtra("data");
         String[] mass = openText().split(":");
@@ -38,6 +40,14 @@ public class lichyi_kabinet extends AppCompatActivity {
         fioText.setText(mass[1]);
         tlfText.setText(mass[2]);
         passText.setText(mass[0]);
+        logoutButton.setOnClickListener(new View.OnClickListener() { // кнопка перехода на "Главную" активность
+            @Override
+            public void onClick(View v) {
+                saveText("null");
+                Intent intent = new Intent(lichyi_kabinet.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
         logButton.setOnClickListener(new View.OnClickListener() { // кнопка перехода на "Главную" активность
             @Override
             public void onClick(View v) {

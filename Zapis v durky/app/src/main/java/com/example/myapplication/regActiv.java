@@ -43,7 +43,7 @@ public class regActiv extends AppCompatActivity {
                 data = passText.getText().toString() + ":" + fioText.getText().toString() + ":" + tlfText.getText().toString() + ":" + omcText.getText().toString();
                 ref = db.getReference(omcText.getText().toString()); // Извлекаем путь ячейки, в которую зальем данные(путь к ячейке - это ОМС)
                 ref.setValue(data); // Заливаем данные.
-                showToast("Вы успешно зарегестрировались! Пожалуйста, вернитесь на экран входа и войдите в учетную запись.");
+                showToast("Вы успешно зарегистрировались! Пожалуйста, вернитесь на экран входа и войдите в учетную запись.");
 
             }
         });

@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         final Button regButton = findViewById(R.id.button);
         mass = new String[5];
        // ref = FirebaseDatabase.getInstance().getReference();
-        if (openText() != null)
+        if (openText() != null && !openText().equals("null"))
             // Проверка на предыдущие заходы в аккаунт. Если логин был произведен, то файл будет существовать и метод вернет не ноль,
             // в следствии чего, нас сразу перенесет на активность личного кабинета со всеми нашими данными.
             // В противнм случае - остаемся на той же активности.

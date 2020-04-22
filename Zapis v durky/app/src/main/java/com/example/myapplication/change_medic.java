@@ -62,7 +62,7 @@ public class change_medic extends AppCompatActivity {
                         startActivity(intent);
                     } else if (item.equals("Офтальмотолог - Глазнов К.Б.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Офтальмотолог - Глазнов Кирил Борисов");
+                        intent.putExtra("Data", "Офтальмотолог - Глазнов Кирилл Борисов");
                         startActivity(intent);
                     } else if (item.equals("Хирург - Резнова Д.А.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
@@ -78,7 +78,7 @@ public class change_medic extends AppCompatActivity {
                         startActivity(intent);
                     } else if (item.equals("Проктолог - Попов Ю.А.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Проктолог - Попов Юрюй Алексеевич");
+                        intent.putExtra("Data", "Проктолог - Попов Юрий Алексеевич");
                         startActivity(intent);
                     }
 
