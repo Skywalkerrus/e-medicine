@@ -42,43 +42,43 @@ public class change_medic extends AppCompatActivity {
                     // при выборе конкретного элеента спиннера мы переходим на активность выбора времени и даты
                     // при переходе мы передаем данные врача, которого мы выбрали(чтоб программа отобразила его данные из ячейки врача в бд)
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Травматолог - Ломова Вероника Олеговна"); // передаем данные
+                        intent.putExtra("Data", "Травматолог - Ломова Вероника Олеговна Кабинет№ 101"); // передаем данны
                         startActivity(intent);
                 } else if (item.equals("Кардиолог - Аллахов Е.Н.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Кардиолог - Аллахов Егор Николаевич");
+                        intent.putExtra("Data", "Кардиолог - Аллахов Егор Николаевич Кабинет№ 102");
                         startActivity(intent);
                 } else if (item.equals("Ортопед - Ногов С.П.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Ортопед - Ногов Сергей Петрович");
+                        intent.putExtra("Data", "Ортопед - Ногов Сергей Петрович Кабинет№ 103");
                         startActivity(intent);
                 } else if (item.equals("Уролог - Косов В.В.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Уролог - Косов Виталий Витальевич");
+                        intent.putExtra("Data", "Уролог - Косов Виталий Витальевич Кабинет№ 104");
                         startActivity(intent);
                     } else if (item.equals("Терапевт - Дежурнова Ю.А.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Терапевт - Дежурнова Юлия Андреевна");
+                        intent.putExtra("Data", "Терапевт - Дежурнова Юлия Андреевна Кабинет№ 201");
                         startActivity(intent);
                     } else if (item.equals("Офтальмотолог - Глазнов К.Б.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Офтальмотолог - Глазнов Кирилл Борисов");
+                        intent.putExtra("Data", "Офтальмотолог - Глазнов Кирилл Борисов Кабинет№ 202");
                         startActivity(intent);
                     } else if (item.equals("Хирург - Резнова Д.А.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Хирург - Резнова Дарья Андреевна");
+                        intent.putExtra("Data", "Хирург - Резнова Дарья Андреевна Кабинет№ 203");
                         startActivity(intent);
                     } else if (item.equals("Стоматолог - Зубнов И.О.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Стоматолог - Зубнов Игорь Олегович");
+                        intent.putExtra("Data", "Стоматолог - Зубнов Игорь Олегович Кабинет№ 204");
                         startActivity(intent);
                     } else if (item.equals("Вирусолог - Максимов И.А.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Вирусолог - Максимов Илья Андреевич");
+                        intent.putExtra("Data", "Вирусолог - Максимов Илья Андреевич Кабинет№ 205");
                         startActivity(intent);
                     } else if (item.equals("Проктолог - Попов Ю.А.")) {
                         Intent intent = new Intent(change_medic.this, time.class);
-                        intent.putExtra("Data", "Проктолог - Попов Юрий Алексеевич");
+                        intent.putExtra("Data", "Проктолог - Попов Юрий Алексеевич Кабинет№ 301");
                         startActivity(intent);
                     }
 

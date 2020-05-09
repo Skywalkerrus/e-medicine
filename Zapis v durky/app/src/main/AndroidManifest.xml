@@ -6,13 +6,13 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Личный кабинет"
+        android:label="Электронная регистратура"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".info_about_klin"
-            android:label="Контакты"></activity>
+            android:label="Контакты" />
         <activity android:name=".time"
             android:label="Запись к врачу"/>
         <activity android:name=".change_medic"
@@ -28,7 +28,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"
-            android:label="Личный кабинет">
+            android:label="Вход">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"
                    />
