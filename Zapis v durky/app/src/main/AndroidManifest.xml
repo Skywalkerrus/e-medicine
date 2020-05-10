@@ -24,7 +24,7 @@
             android:label="Идентификация" />
         <activity
             android:name=".MainActivity"
-            android:label="Главная"
+            android:label="Главное меню"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"

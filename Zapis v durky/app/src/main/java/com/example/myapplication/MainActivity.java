@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTitle("Главная");
+        setTitle("Главное меню");
         // Здесь ничего особенного не происходит, кроме создания вкладок, методом setAdapter. Все события вкладок обрабатываются
         //в blankFragment1 и blankFragment2
         super.onCreate(savedInstanceState);
