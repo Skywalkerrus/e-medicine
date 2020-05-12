@@ -21,14 +21,14 @@
             android:label="Личный кабинет"/>
         <activity
             android:name=".regActiv"
-            android:label="Идентификация" />
+            android:label="Регистрация" />
         <activity
             android:name=".MainActivity"
             android:label="Главное меню"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"
-            android:label="Вход">
+            android:label="Личный кабинет">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"
                    />
